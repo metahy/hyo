@@ -1,13 +1,7 @@
-$(function(){
-
-	// Cache some selectors
+$(function () {
 
 	var clock = $('#clock'),
 		ampm = clock.find('.ampm');
-
-	// This will hold the number of seconds left
-	// until the alarm should go off
-	var alarm_counter = -1;
 
 	// Map digits to their names (this will be an array)
 	var digit_to_name = 'zero one two three four five six seven eight nine'.split(' ');
@@ -25,16 +19,16 @@ $(function(){
 
 	var digit_holder = clock.find('.digits');
 
-	$.each(positions, function(){
+	$.each(positions, function () {
 
-		if(this == ':'){
+		if (this == ':') {
 			digit_holder.append('<div class="dots">');
 		}
-		else{
+		else {
 
 			var pos = $('<div>');
 
-			for(var i=1; i<8; i++){
+			for (var i = 1; i < 8; i++) {
 				pos.append('<span class="d' + i + '">');
 			}
 
@@ -52,7 +46,7 @@ $(function(){
 	var weekday_names = 'MON TUE WED THU FRI SAT SUN'.split(' '),
 		weekday_holder = clock.find('.weekdays');
 
-	$.each(weekday_names, function(){
+	$.each(weekday_names, function () {
 		weekday_holder.append('<span>' + this + '</span>');
 	});
 
@@ -61,7 +55,7 @@ $(function(){
 
 	// Run a timer every second and update the clock
 
-	(function update_time(){
+	(function update_time() {
 
 		// Use moment.js to output the current time as a string
 		// hh is for the hours in 12-hour format,
@@ -83,9 +77,9 @@ $(function(){
 
 		var dow = now[6];
 		dow--;
-		
+
 		// Sunday!
-		if(dow < 0){
+		if (dow < 0) {
 			// Make it last
 			dow = 6;
 		}
@@ -94,7 +88,7 @@ $(function(){
 		weekdays.removeClass('active').eq(dow).addClass('active');
 
 		// Set the am/pm text:
-		ampm.text(now[7]+now[8]);
+		ampm.text(now[7] + now[8]);
 
 		// Schedule this function to be run again in 1 sec
 		setTimeout(update_time, 1000);
