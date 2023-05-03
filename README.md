@@ -2,6 +2,9 @@
 
 New tab page with only one digital clock.
 
+## Example
+![Hyo](https://raw.githubusercontent.com/metahy/hyo/master/assets/hyo_example.png)
+
 ## How to install
 
 ### 1. Clone repository
