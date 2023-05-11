@@ -1,7 +1,8 @@
 $(function () {
 
-	var clock = $('#clock'),
-		ampm = clock.find('.ampm');
+	// Cache some selectors
+
+	var clock = $('#clock'), ampm = clock.find('.ampm');
 
 	// Map digits to their names (this will be an array)
 	var digit_to_name = 'zero one two three four five six seven eight nine'.split(' ');
@@ -23,8 +24,7 @@ $(function () {
 
 		if (this == ':') {
 			digit_holder.append('<div class="dots">');
-		}
-		else {
+		} else {
 
 			var pos = $('<div>');
 
@@ -92,7 +92,18 @@ $(function () {
 
 		// Schedule this function to be run again in 1 sec
 		setTimeout(update_time, 1000);
-
 	})();
 
+	// Switch the theme
+	const themeMedia = window.matchMedia("(prefers-color-scheme: light)");
+
+	if (themeMedia.matches) {
+		clock.addClass('light')
+	} else {
+		clock.addClass('dark')
+	}
+
+	themeMedia.addEventListener('change', () => {
+		clock.toggleClass('light dark');
+	});
 });
