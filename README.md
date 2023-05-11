@@ -3,7 +3,7 @@
 New tab page with only one digital clock.
 
 ## Example
-![Hyo](https://raw.githubusercontent.com/metahy/hyo/master/assets/img/hyo_example.png)
+![Hyo](assets/img/hyo_example.png)
 
 ## How to install
 
